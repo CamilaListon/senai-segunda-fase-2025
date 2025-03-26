@@ -1,0 +1,19 @@
+.container-estados{
+    background-color: rgb(182, 147, 238);
+    height: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgb(19, 1, 48);
+}
+
+.botao{
+    padding-top: 8px;
+
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+}

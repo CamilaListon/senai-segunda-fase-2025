@@ -1,0 +1,62 @@
+CREATE DATABASE empresas;
+
+USE empresas;
+
+CREATE TABLE empresa(
+id_empresa INT NOT NULL AUTO_INCREMENT,
+codigo_empresa INT,
+nome_empresa VARCHAR(45),
+endereco_empresa VARCHAR(45),
+PRIMARY KEY(id_empresa)
+);
+
+CREATE TABLE projeto(
+id_projeto INT NOT NULL AUTO_INCREMENT,
+numero_projeto INT,
+data_inicio DATE,
+data_fim DATE,
+valor_projeto DECIMAL(10,2),
+PRIMARY KEY(id_projeto)
+);
+
+ALTER TABLE projeto
+ADD COLUMN empresa_id INT,
+ADD FOREIGN KEY (empresa_id)
+REFERENCES empresa (id_empresa);
+
+ALTER TABLE projeto
+ADD COLUMN departamento_id INT,
+ADD FOREIGN KEY (departamento_id)
+REFERENCES departamento (id_departamento);
+
+CREATE TABLE consultor(
+id_consultor INT NOT NULL AUTO_INCREMENT,
+nome_consultor INT,
+numero_documento INT,
+PRIMARY KEY(id_consultor)
+);
+
+ALTER TABLE consultor
+ADD COLUMN projeto_id INT,
+ADD FOREIGN KEY (projeto_id)
+REFERENCES projeto (id_projeto);
+
+CREATE TABLE departamento(
+id_departamento INT NOT NULL AUTO_INCREMENT,
+departamento VARCHAR(45),
+sigla VARCHAR(10),
+centro_de_custo INT,
+PRIMARY KEY(id_departamento)
+);
+
+ALTER TABLE departamento
+ADD COLUMN unidade_id INT,
+ADD FOREIGN KEY (unidade_id)
+REFERENCES unidade (id_unidade);
+
+CREATE TABLE unidade(
+id_unidade INT NOT NULL AUTO_INCREMENT,
+gerente VARCHAR(45),
+supervisor VARCHAR(10),
+PRIMARY KEY(id_unidade)
+);

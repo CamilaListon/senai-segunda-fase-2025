@@ -1,0 +1,117 @@
+-- CONSTRAINS
+-- NOT NULL - Não Nulo
+-- UNIQUE - Informação Unica
+-- DEFAULT - Campo Opcional (É Possivel Configurar Previamente Para “”)
+-- ENUM - Lista Pré Definida 
+-- CHECK - Restrição de Resposta (usado muito os operadores lógicos ex: > = - <)
+
+CREATE DATABASE regra_constraint;
+
+USE regra_constraint;
+
+CREATE TABLE usuario(
+id_cliente INT AUTO_INCREMENT,
+nome VARCHAR (50) NOT NULL,
+cpf BIGINT UNIQUE,
+pais VARCHAR (50) DEFAULT 'Brasil',
+graduado ENUM ('SIM','NÃO'),
+num_filhos INT,
+CHECK (num_filhos >=0),
+PRIMARY KEY (id_cliente)
+);
+
+SELECT * FROM usuario;
+
+ -- Teste Constrain NOT NULL
+ -- Teste de erro sem o nome, com a coluna nome:
+INSERT INTO usuario
+(nome, cpf, pais, graduado, num_filhos)
+VALUES
+(12345678911, 'Brasil', 'SIM', 2)
+;
+-- Erro apresentado: 
+-- Error Code: 1136. Column count doesn't match value count at row 1	0.000 sec
+-- Erro devido não ter a quantia de colunas corretas;
+
+ -- Teste de erro sem nome, e sem a coluna nome:
+INSERT INTO usuario
+(cpf, pais, graduado, num_filhos)
+VALUES
+(12345678911, 'Brasil', 'SIM', 2)
+;
+ -- Erro apresentado 
+ -- Error Code: 1364. Field 'nome' doesn't have a default value
+ 
+ -- Informando tudo corretamente:
+INSERT INTO usuario
+(nome, cpf, pais, graduado, num_filhos)
+VALUES
+('Carlos',12345678911, 'Brasil', 'SIM', 2)
+;
+
+ -- Teste Constrain UNIQUE
+INSERT INTO usuario
+(nome, cpf, pais, graduado, num_filhos)
+VALUES
+('Maria',12345678911, 'Chile', 'NÃO', 1)
+;
+ -- Erro apresentado:
+ -- Error Code: 1062. Duplicate entry '12345678911' for key 'usuario.cpf'	0.016 sec
+ -- Apresentado erro que informa que o CPF esta duplicado. 
+ 
+  -- Informando tudo corretamente:
+INSERT INTO usuario
+(nome, cpf, pais, graduado, num_filhos)
+VALUES
+('Maria',12345632165, 'Chile', 'NÃO', 1)
+;
+
+ -- Teste Constrain DEFAULT
+INSERT INTO usuario
+(nome, cpf,  graduado, num_filhos)
+VALUES
+('Diego',99945678911 ,'NÃO', 2)
+;
+ -- Rodou corretamente, devido ter uma informação pre definida.
+ -- Teste com país diferente.
+INSERT INTO usuario
+(nome, cpf, pais, graduado, num_filhos)
+VALUES
+('Paulo',99945678888 ,'Argentina','NÃO', 2)
+;
+ --  Correu corretamenteo, ele vai informar a opção que for escrita, se não for escrito nada, será a informação pre definida.
+ 
+-- Teste Constrain ENUM
+INSERT INTO usuario
+(nome, cpf, pais, graduado, num_filhos)
+VALUES
+('Ana',99943218911 ,'China' ,'Incompleto' , 2)
+;
+-- Erro Apresentado:
+-- Error Code: 1265. Data truncated for column 'graduado' at row 1	0.000 sec
+-- Devido ser uma lista pre definida, so pode responder o que consta como opção;
+ -- Informando tudo corretamente:
+INSERT INTO usuario
+(nome, cpf, pais, graduado, num_filhos)
+VALUES
+('Ana',99943218911 ,'China' ,'NÃO' , 2)
+;
+ -- Rodou corretamente
+ 
+ -- Teste Constrain CHECK
+INSERT INTO usuario
+(nome, cpf, pais, graduado, num_filhos)
+VALUES
+('Andreia',99943458911 ,'Canada' ,'SIM' , -1)
+;
+ -- Erro apresentado:
+ -- Error Code: 3819. Check constraint 'usuario_chk_1' is violated.	0.000 sec
+ -- Devido não existir ser a informação que deveria ser igual ou maior que 1
+ 
+-- Informando tudo corretamente:
+INSERT INTO usuario
+(nome, cpf, pais, graduado, num_filhos)
+VALUES
+('Andreia',99943458911 ,'Canada' ,'SIM' , 0)
+;
+ -- Se deixar vazio, ele vai aceitar, e ficará como "null" na tabela.

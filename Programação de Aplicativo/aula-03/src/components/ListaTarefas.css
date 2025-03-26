@@ -1,0 +1,66 @@
+.container-lista {
+    /* text-align: center; */
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color:rgb(182, 147, 238);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgb(19, 1, 48);
+}
+
+.input-container {
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 200px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    background-color:rgb(169, 121, 247);
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgb(19, 1, 48);
+}
+
+li span {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+li.concluida span {
+    text-decoration: line-through;
+    color: rgb(19, 1, 48);
+}
+
+li button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.botaoAdd{
+    margin-left: 9px
+}
+
+#botaoExcluir{
+    background-color: rgb(19, 1, 48);
+}

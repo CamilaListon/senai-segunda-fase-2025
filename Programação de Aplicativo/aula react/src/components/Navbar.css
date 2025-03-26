@@ -1,0 +1,11 @@
+body{
+    background-color: black;
+}
+
+.container-navbar{
+    background-color: aquamarine;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 25px;
+    width: 500px;
+}

@@ -1,0 +1,22 @@
+body{
+  background-color: rgb(76, 65, 78);
+  color: black;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+button {
+  padding: 8px 12px;
+  font-size: 16px;
+  background-color: rgb(123, 86, 182);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgb(19, 1, 48);
+}
+
+button:hover {
+  background-color: rgb(112, 33, 240);
+}

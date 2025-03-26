@@ -1,0 +1,86 @@
+CREATE DATABASE categorias_produtos;
+
+USE categorias_produtos;
+
+CREATE TABLE categorias(
+id_categoria INT NOT NULL AUTO_INCREMENT,
+categoria VARCHAR(45),
+PRIMARY KEY(id_categoria)
+);
+
+CREATE TABLE clientes(
+id_cliente INT NOT NULL AUTO_INCREMENT,
+nome_cliente VARCHAR(45),
+email_cliente VARCHAR(45),
+senha_cliente VARCHAR(45),
+rua_cliente VARCHAR(45),
+cidade_cliente VARCHAR(45),
+bairro_cliente VARCHAR(45),
+cep_cliente INT,
+estado_cliente VARCHAR(45),
+PRIMARY KEY(id_cliente)
+);
+
+ALTER TABLE clientes
+RENAME COLUMN senha_cliente TO password_cliente;
+
+ALTER TABLE clientes 
+ADD COLUMN renda DECIMAL(8,2);
+
+ALTER TABLE clientes
+MODIFY COLUMN nome_cliente VARCHAR(150);
+
+ALTER TABLE clientes
+DROP COLUMN estado_cliente;
+
+CREATE TABLE produtos(
+id_produto INT NOT NULL AUTO_INCREMENT,
+produto VARCHAR(45),
+preco_produto DECIMAL(8,2),
+quantidade_produto INT,
+descricao TEXT(250),
+foto TEXT(999),
+cetegoria_id INT,
+PRIMARY KEY(id_produto),
+FOREIGN KEY (cetegoria_id)
+REFERENCES categorias (id_categoria)
+);
+
+ALTER TABLE produtos 
+ADD COLUMN observacao TEXT;
+
+ALTER TABLE produtos
+MODIFY COLUMN foto LONGTEXT;
+
+
+CREATE TABLE pedidos(
+id_pedido INT NOT NULL AUTO_INCREMENT,
+data_pedido DATE,
+status_pedido VARCHAR(45),
+sessao_pedido VARCHAR(45),
+cliente_id INT,
+PRIMARY KEY(id_pedido), 
+FOREIGN KEY (cliente_id)
+REFERENCES clientes (id_cliente)
+);
+
+ALTER TABLE pedidos 
+ADD COLUMN observacao_pedido TEXT;
+
+CREATE TABLE pedido_itens(
+id_pedido_item INT NOT NULL AUTO_INCREMENT,
+produto_item VARCHAR(45),
+quantidade_item VARCHAR(45),
+valor_item DECIMAL(8,2),
+subtotal DECIMAL(65,2),
+pedido_id INT,
+produto_id INT,
+PRIMARY KEY(id_pedido_item),
+FOREIGN KEY (pedido_id)
+REFERENCES pedidos (id_pedido),
+FOREIGN KEY (produto_id)
+REFERENCES produtos (id_produto)
+);
+
+ALTER TABLE pedido_itens
+RENAME TO item;

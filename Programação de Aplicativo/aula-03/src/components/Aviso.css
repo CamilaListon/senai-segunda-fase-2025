@@ -1,0 +1,10 @@
+.aviso{
+    background-color: rgb(182, 147, 238);
+    margin-top: 25px;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgb(19, 1, 48);
+}
