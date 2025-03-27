@@ -1,0 +1,112 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    margin: 0;  
+}
+
+.container{
+    height: 100%;
+    background-color: rgb(48, 50, 54);
+    display: flex;
+    font-family:'Courier New', Courier, monospace
+}
+
+
+.esquerda{
+    height: 100%;
+    width: 50%;
+    background-color: rgb(221, 182, 247);
+    
+}
+
+#um{
+    height: 10%;
+    width: 100%;
+}
+
+#dois{
+    height: 15%;
+    width: 100%;
+    text-align: center;
+}
+
+#tres{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+.icones{
+    height: 35%;
+    cursor: pointer;
+}
+
+#quatro{
+    height: 45%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+    gap: 10px;
+}
+
+input{
+    height: 10%;
+    width: 80%;
+    font-family:'Courier New', Courier, monospace
+}
+
+.meioQuatro{
+    align-items: first baseline;
+}
+
+#cinco{
+    height: 15%;
+    width: 100%;
+}
+
+.direita{    
+    height: 100%;
+    width: 50%;
+    background-color: rgb(136, 182, 241);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+
+}
+
+#hello{
+    font-size: 50px;
+}
+
+#lblSubText{
+    font-size: 20px;
+    margin: 10px 0 5px 0;
+    padding: 25px;
+}
+
+#botao{
+    background-color: rgb(136, 182, 241);
+    border: 2px solid red;
+    border-radius: 18px;
+    width: 150px;
+    height: 50px;
+    font-family:'Courier New', Courier, monospace;
+    cursor: pointer;
+}
+
+#sign{
+    font-size: 100px;
+}
+
+#your{
+    cursor: pointer;
+}
+
