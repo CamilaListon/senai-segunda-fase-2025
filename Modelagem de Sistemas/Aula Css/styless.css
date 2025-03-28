@@ -9,7 +9,6 @@ body{
 
 .container{
     height: 100%;
-    background-color: rgb(48, 50, 54);
     display: flex;
     font-family:'Courier New', Courier, monospace
 }
@@ -18,8 +17,7 @@ body{
 .esquerda{
     height: 100%;
     width: 50%;
-    background-color: rgb(221, 182, 247);
-    
+    background-color: aliceblue;    
 }
 
 #um{
@@ -59,7 +57,10 @@ body{
 input{
     height: 10%;
     width: 80%;
-    font-family:'Courier New', Courier, monospace
+    font-family:'Courier New', Courier, monospace;
+    border-radius: 20px;
+    border: 3px solid rgb(88, 192, 218);
+    padding: 5px;
 }
 
 .meioQuatro{
@@ -74,7 +75,7 @@ input{
 .direita{    
     height: 100%;
     width: 50%;
-    background-color: rgb(136, 182, 241);
+    background-image: linear-gradient(to right, rgb(102, 132, 170), rgb(136, 182, 241));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,16 +91,18 @@ input{
     font-size: 20px;
     margin: 10px 0 5px 0;
     padding: 25px;
+    text-align: justify;
 }
 
 #botao{
-    background-color: rgb(136, 182, 241);
-    border: 2px solid red;
-    border-radius: 18px;
+    background-image: linear-gradient(to left, rgb(102, 132, 170), rgb(136, 182, 241));
+    border: 3px solid rgb(88, 192, 218);
+    border-radius: 20px;
     width: 150px;
     height: 50px;
     font-family:'Courier New', Courier, monospace;
     cursor: pointer;
+    font-weight: bolder;
 }
 
 #sign{

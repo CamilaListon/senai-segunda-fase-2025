@@ -1,0 +1,127 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    margin: 0;  
+}
+
+.container{
+    height: 100%;
+    background-color:white;
+    display: flex;
+    
+}
+
+.esquerda{
+    height: 100%;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.um{
+    height: 5%;
+    width: 100%;
+}
+
+.dois{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+#urso{
+    height: 100%;
+}
+
+.tres{
+    height: 5%;
+    width: 100%;
+    font-size: 80px;
+    padding: 8px;
+    text-align: center;
+}
+
+.quatro{
+    height: 6%;
+    width: 100%;
+    font-size: 38px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+#get{
+    color: rgb(211, 120, 0);
+}
+
+.cinco{
+    height: 40%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: 5px;
+    gap: 20px;
+    font-size: 35px;
+}
+
+input{
+    height: 13%;
+    width: 99%;
+    border-radius: 8px;
+    font-size: 35px;
+    padding: 5px;
+}
+
+.seis{
+    height: 5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    height: 100%;
+    width: 50%;
+    font-size: 35px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(240, 121, 23);
+}
+
+.sete{
+    height: 5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.oito{
+    height: 10%;
+    width: 100%;
+
+}
+
+.nove{
+    height: 9%;
+    width: 100%;
+
+}
+
+.direita{
+    height: 100%;
+    width: 55%;
+    background-color: aqua;
+}
