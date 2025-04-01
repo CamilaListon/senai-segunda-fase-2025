@@ -28,8 +28,8 @@ const TimeConverter = () => {
   };
 
   return (
-    <div clarName="container-conversor-tempo">
-      <h1>Conversor de Tempo</h1>
+    <div className="container-conversor-tempo">
+      <h2>Conversor de Tempo</h2>
 
       <div>
         <label>Horas:</label>

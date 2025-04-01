@@ -13,14 +13,15 @@ import ConversorEnergia from './components/ConversorEnergia'
 import ListaTarefas from './components/ListaTarefas'
 import AnoBissexto from './components/AnoBissexto'
 import Cronometro from './components/Cronometro'
-
-
+import ConversorTempo from './components/ConversorTempo'
+import Pomar from './components/Pomar'
 
 function App() {
 
   return (
     <>
-      <conversorTempo/>
+      <Pomar/>
+      <ConversorTempo/>
       <Cronometro/>
       <AnoBissexto/>
       <ListaTarefas/>
