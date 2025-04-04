@@ -21,7 +21,7 @@ function App() {
       <label htmlFor="">Senha</label>
       <input type="text" 
       value={inputSenha}
-      onChange={(value) => setInputSenha (event.target.value)}
+      onChange={(event) => setInputSenha (event.target.value)}
       />
 
       
