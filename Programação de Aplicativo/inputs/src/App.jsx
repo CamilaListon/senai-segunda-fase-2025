@@ -4,9 +4,19 @@ import './App.css'
 function App() {
   const[inputUsername, setInputUsername] = useState('')
   const[inputSenha, setInputSenha] = useState('')
+  const[erro, setErro] = useState(false)
 
   function efetuarLogin(){
-    alert(inputUsername)
+    //GillBates
+    //1235  
+    if(inputUsername =='GillBates' && inputSenha == '1235'){
+      alert("Pode entrar")
+      setErro(false)
+    }else{
+      // alert("Erro #403")
+      setErro(true)
+    }
+
   }
 
   return (
@@ -24,8 +34,9 @@ function App() {
       onChange={(event) => setInputSenha (event.target.value)}
       />
 
-      
-      {/* {inputValor} */}
+      {erro && 
+      <span className='msg-erro'>Credenciais inválidas.</span>
+      }
 
       <button onClick={efetuarLogin}>Login</button>
 
@@ -34,3 +45,5 @@ function App() {
 }
 
 export default App
+
+// https://neumorphism.io/#e0e0e0
