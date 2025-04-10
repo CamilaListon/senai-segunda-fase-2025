@@ -1,0 +1,39 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    margin: 0;  
+    background-color: rgb(83, 67, 97);
+    text-align: center;
+}
+
+.container-geral{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+button{
+    border-radius: 8px;
+    background-color: rgb(192, 226, 255);
+    font-size: 20px;
+    height: 35px;
+    width: 100%;
+}
+
+h2{
+    font-size: 60px;
+    color: rgb(198, 245, 247);
+}
+
+p{
+    color: azure;
+    line-height: 25px;
+    text-align: left;
+    
+    
+}
