@@ -6,9 +6,7 @@ function DevCansado() {
     const [OracDevCansado, setOracDevCansado] = useState(false)
 
     function toggleDevCansado() {
-        setOracDevCansado(!OracDevCansado)
-        console.log(OracDevCansado);
-        
+        setOracDevCansado(!OracDevCansado)        
     }
 
   return (

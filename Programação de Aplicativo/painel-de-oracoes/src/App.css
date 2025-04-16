@@ -7,22 +7,35 @@ body{
     margin: 0;  
     background-color: rgb(83, 67, 97);
     text-align: center;
+    align-items: center; 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#root{
+    width: 80%;
 }
 
 .container-geral{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    
+    justify-content: center;
+    gap: 25px;
 }
 
+
 button{
-    border-radius: 8px;
+    border-radius: 2px;
     background-color: rgb(192, 226, 255);
     font-size: 20px;
     height: 35px;
     width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 8px  rgb(255, 255, 255);
 }
 
 h2{

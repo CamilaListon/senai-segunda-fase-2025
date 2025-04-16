@@ -15,19 +15,15 @@ function App() {
 
 
   return (
-    <div className='container-geral'>
-    <DevCansado/>
-    <Aprendiz/>
-    <Resiliente/>
-    <Estudante/>
-    <Programador/>
-    <Deploy/>
-    <Fullstack/>
-    <Backend/>
-    <Frontend/>
-    <Desenvolvedor/>
-
-    </div>
+  
+      <div className='container-geral'>
+        <div id="DevCan"><DevCansado/></div>
+        <div id="apren"><Aprendiz/></div>
+        <div id="back"><Backend/></div>
+        <div id="fron"><Frontend/></div>
+        <div id="desenv"><Desenvolvedor/></div>
+      </div>
+ 
   )
 }
 
