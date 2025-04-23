@@ -10,6 +10,7 @@ function Produto(props) {
         
         <h2>{props.modelo}</h2>
         <p>R${props.preco.toFixed(2).replace(".",",")}</p>
+        <p>ID: {props.id}</p>
     </div>
   )
 }
