@@ -1,0 +1,66 @@
+CREATE DATABASE posto_combustivel;
+
+USE posto_combustivel;
+
+-- Tabela de estoque (quantidade de combustível disponível)
+CREATE TABLE estoque_combustivel (
+    id INT NOT NULL AUTO_INCREMENT,
+    capacidade_total DECIMAL(10,2),
+    quantidade_disponivel DECIMAL(10,2),
+    PRIMARY KEY (id)
+);
+
+-- Tabela de abastecimentos
+CREATE TABLE abastecimento (
+    id_abastecimento INT NOT NULL AUTO_INCREMENT,
+    data_hora DATETIME,
+    litros_abastecidos DECIMAL(10,2),
+    preco_litro DECIMAL(5,2) DEFAULT 6.50,
+    estoque_id INT,
+    PRIMARY KEY (id_abastecimento),
+    FOREIGN KEY (estoque_id) REFERENCES estoque_combustivel(id)
+);
+
+-- Trigger para impedir abastecimento com litros maiores que o estoque
+DELIMITER $$
+
+CREATE TRIGGER valida_estoque
+BEFORE INSERT ON abastecimento
+FOR EACH ROW
+BEGIN
+    DECLARE estoque_atual DECIMAL(10,2);
+
+    SELECT quantidade_disponivel INTO estoque_atual
+    FROM estoque_combustivel
+    WHERE id = NEW.estoque_id;
+
+    IF NEW.litros_abastecidos > estoque_atual THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Abastecimento excede o estoque disponível.';
+    END IF;
+END;
+$$
+
+-- Trigger para atualizar o estoque após abastecimento
+CREATE TRIGGER atualiza_estoque
+AFTER INSERT ON abastecimento
+FOR EACH ROW
+BEGIN
+    UPDATE estoque_combustivel
+    SET quantidade_disponivel = quantidade_disponivel - NEW.litros_abastecidos
+    WHERE id = NEW.estoque_id;
+END;
+$$
+
+DELIMITER ;
+
+-- Exemplo de inserção de estoque inicial
+INSERT INTO estoque_combustivel (capacidade_total, quantidade_disponivel)
+VALUES (10000.00, 10000.00);
+
+-- Exemplo de abastecimento (válido se houver estoque suficiente)
+-- INSERT INTO abastecimento (data_hora, litros_abastecidos, estoque_id)
+-- VALUES (NOW(), 50.5, 1);
+
+-- SELECT * FROM estoque_combustivel;
+-- SELECT * FROM abastecimento;
