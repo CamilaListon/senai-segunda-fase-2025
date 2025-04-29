@@ -1,0 +1,45 @@
+CREATE DATABASE atv_posto_28_04;
+
+USE atv_posto;
+
+CREATE TABLE combustivel(
+id_combustivel INT NOT NULL AUTO_INCREMENT,
+preco_combustivel DECIMAL(10,2),
+quantidade_combustivel INT,
+PRIMARY KEY (id_combustivel)
+);
+
+CREATE TABLE abastecimento(
+id_abastecimento INT NOT NULL AUTO_INCREMENT,
+data_horario_abastecimento DATETIME,
+quantidade_abastecimento DECIMAL(10,2),
+combustivel_id INT,
+PRIMARY KEY(id_abastecimento),
+FOREIGN KEY (combustivel_id)
+REFERENCES combustivel (id_combustivel)
+);
+
+INSERT INTO combustivel
+(preco_combustivel, quantidade_combustivel)
+VALUES
+('6.50', 2000);
+
+INSERT INTO abastecimento
+(data_horario_abastecimento, quantidade_abastecimento, combustivel_id)
+VALUES
+('2023-10-16 19:35:00', '25.5', 1);
+
+DELIMITER $$
+CREATE TRIGGER atualizacao_estoque
+AFTER INSERT ON abastecimento
+FOR EACH ROW 
+BEGIN
+UPDATE combustivel
+SET combustivel.quantidade_combustivel = combustivel.quantidade_combustivel - new.quantidade_abastecimento
+WHERE combustivel.id_combustivel = new.combustivel_id;
+END;
+$$
+
+SELECT * FROM abastecimento;
+
+DROP DATABASE atv_posto_28_04;
