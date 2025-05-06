@@ -1,0 +1,42 @@
+CREATE DATABASE aula_05_05;
+
+USE aula_05_05;
+
+CREATE TABLE pedido(
+id_pedido INT NOT NULL AUTO_INCREMENT,
+data_horario DATETIME,
+tipo_entrega ENUM('Normal','Urgente'),
+preco DECIMAL (8,2),
+quantidade INT,
+valor_total DECIMAL(8,2),
+valor_total_com_desconto DECIMAL(8,2),
+PRIMARY KEY (id_pedido)
+);
+
+DELIMITER //
+
+CREATE TRIGGER trg_calcula_valores
+BEFORE INSERT ON Pedido
+FOR EACH ROW
+BEGIN
+    SET NEW.valor_total = NEW.preco * NEW.quantidade;
+    SET NEW.valor_total_com_desconto = NEW.valor_total * 0.9;
+END;
+//
+
+DELIMITER ;
+
+INSERT INTO pedido
+(data_horario, tipo_entrega, preco, quantidade)
+VALUES
+('2025-05-01 14:30:00', 'Urgente', '10.00', 6),
+('2025-05-02 12:15:00', 'Normal', '150.00', 8),
+('2025-05-03 19:45:00', 'Urgente', '130.00', 15),
+('2025-05-04 09:20:00', 'Normal', '80.00', 3),
+('2025-05-04 18:00:00', 'Urgente', '90.00', 4),
+('2025-05-05 11:05:00', 'Normal', '15', 5);
+
+select * from pedido
+
+
+
