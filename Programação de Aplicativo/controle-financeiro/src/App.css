@@ -1,0 +1,100 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container{
+  border: 2px solid green;
+  border-radius: 8px;
+  padding: 50px 50px;
+  background-color: #7ff5be;
+  box-shadow: 8px 8px 10px green;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+}
+
+.botoes{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.titulo{
+  font-size: 50px;
+}
+
+button{
+  width: 40%;
+  box-shadow: 2px 2px 4px rgb(0, 0, 0);
+  cursor: pointer;
+  
+}
+
+img{
+  width: 80px;
+}
+
+.indice{
+  display: flex;
+  flex-direction:row-reverse;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+#cred:hover{
+  background-color: green;
+  color: black;
+  border: 1px solid black;
+}
+
+#deb:hover{
+  background-color: rgb(255, 10, 10);
+  color: black;
+  border: 1px solid black;
+}
+
+input{
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+}
+
+.infos{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.relatorio{
+  margin-top: 25px;
+}
+
+#relat{
+  font-size: 22px;
+  text-decoration:underline;
+}
+
+.saldo{
+  width: 50%;
+  border: 2px solid green;
+  border-radius: 8px;
+  font-size: 22px;
+  box-shadow: inset 0 0 10px 0.5px rgba(27, 151, 43, 0.6);
+}
+
+.sup{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
