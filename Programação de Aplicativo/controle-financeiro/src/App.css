@@ -15,6 +15,9 @@
   flex-direction: column;
   gap: 10px;
   width: 400px;
+  font-family: "Jura", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 .botoes{
