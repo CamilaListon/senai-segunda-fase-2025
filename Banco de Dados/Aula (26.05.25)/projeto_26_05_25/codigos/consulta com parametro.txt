@@ -1,0 +1,11 @@
+app.get('/estudantesY/:id', (req, res) =>{
+    const id = req.params.id
+    const sql = 'SELECT * FROM dados_estudantes WHERE id_estudante=?'
+    conexao.query(sql, id, (erro, resultado) =>{
+        if(erro){
+            console.log(erro)
+        } else {
+            res.json(resultado)
+        }
+    })
+})
