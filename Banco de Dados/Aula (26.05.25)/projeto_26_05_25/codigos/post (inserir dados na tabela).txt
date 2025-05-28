@@ -1,0 +1,11 @@
+app.post('/estudantesY', (req, res) =>{
+    const estudante = req.body
+    const sql = 'INSERT INTO dados_estudantes SET ?'
+    conexao.query(sql, estudante, (erro, resultado) =>{
+        if(erro){
+            console.log(erro)
+        } else {
+            res.json(resultado)
+        }
+    })
+})
